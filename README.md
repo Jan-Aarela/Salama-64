@@ -34,3 +34,13 @@ WIP
 | 2 puoleisia piirilevyjä esim. jyrsimällä |
 | Jotain materiaalia taustapanelia varten |
 
+
+``` bash
+# Fuse asetukset
+# https://www.engbedded.com/fusecalc/
+avrdude -c avrips -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0x5f:m
+```
+
+``` bash
+# Fuse asetuksien nollaaminen 
+```

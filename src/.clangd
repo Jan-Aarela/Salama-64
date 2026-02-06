@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - "-target"
+    - "avr"
+    - "-mmcu=attiny861a"
+    - "-isystem"
+    - "/usr/avr/include"

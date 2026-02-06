@@ -1,0 +1,11 @@
+---
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: DontAlign
+BinPackArguments: false
+BinPackParameters: false
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+Cpp11BracedListStyle: false
+ReflowComments: false
+IndentWidth: 4
+TabWidth: 4

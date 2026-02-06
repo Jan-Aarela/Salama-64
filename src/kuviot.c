@@ -10,10 +10,10 @@
 #include <stdint.h>
 
 // Muuttujia
-int8_t kirkkaus[64];
+// int8_t kirkkaus[64];
 
-// Kaikki ledit ON/OFF {{{
-void kaikki(int tila) {
+// Kaikki ledit {{{
+void kaikki(uint16_t tila) {
   int i;
   for (i = 0; i <= 63; i++) {
     kirkkaus[i] = tila;
@@ -21,14 +21,74 @@ void kaikki(int tila) {
   vilkutus();
 } // }}}
 
-// Pulse efekti {{{
-void himmennys(uint16_t kerrat, uint8_t nopeus) {} // }}}
+// Himmennys {{{
+void himmennys(uint16_t kerrat,
+    uint8_t nopeus) //(kerrat = montako kertaa kydn koko kuvio lpi,
+                    // nopeus = montako kertaa kutsutaan vilkutusta
+                    // ennenkuin vaihdetaan svy)
+{
+  uint8_t i;
+  int8_t v;   // vrit
+  uint16_t k; // kerrat
+  for (k = 0; k < kerrat; k++) {
+    for (v = 0; v <= 15; v++) {
+      for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = v;
+      }
+      for (i = 0; i <= nopeus; i++) {
+        vilkutus();
+      }
+    }
 
-// Ympäri kiertelevä {{{
-void ympari(uint16_t kerrat, uint8_t nopeus) {} // }}}
+    for (v = 15; v >= 0; v--) {
+      for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = v;
+      }
+      for (i = 0; i <= nopeus; i++) {
+        vilkutus();
+      }
+    }
+  }
+}
+// }}}
 
-// Aalto {{{
-void aalto(uint16_t kerrat, uint8_t nopeus) {} // }}}
+// yks kerrallaan {{{
+void onebyone(uint16_t kerrat, uint8_t nopeus) {
+  uint8_t i;
+  uint8_t n;
+  uint16_t k; // kerrat
+  for (k = 0; k < kerrat; k++) {
+    for (i = 0; i <= 63; i++) {
+      kirkkaus[i] = 15;
 
-// 4 pikku rakettia, jotka kiertelee logo {{{
-void raketit(uint16_t kerrat, uint8_t nopeus) {} // }}}
+      for (n = 0; n <= nopeus; n++) {
+        vilkutus();
+      }
+
+      kirkkaus[i] = 0;
+    }
+  }
+}
+// }}}
+
+// Täyttö, kaikki kerrallaan {{{
+void taytto(uint16_t kerrat, uint8_t nopeus) {
+  uint8_t i;
+  uint8_t j;
+  uint16_t k; // kerrat
+  for (k = 0; k < kerrat; k++) {
+    for (i = 0; i <= 63; i++) {
+      kirkkaus[i] = 15;
+      for (j = 0; j <= nopeus; j++) {
+        vilkutus();
+      }
+    }
+    for (i = 0; i <= 63; i++) {
+      kirkkaus[i] = 0;
+      for (j = 0; j <= nopeus; j++) {
+        vilkutus();
+      }
+    }
+  }
+}
+// }}}
