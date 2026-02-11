@@ -1,38 +1,45 @@
 <i>
 
-# Vanha kunnon possu... <b>ISONA</b>
+# Vanha kunnon possu... <b>ISONA!</b>
 
-Esimerkiksi kämpän seinälle loistamaan.
+<img src="proto.gif" alt="alt" width="50%">
 
-! WIP !
+## SKEMA
+Vanha tuttu possusalaman skema, paitsi tässä tuplasti ledejä 8x8 multiplex setupilla.  
+Fuse asetus ajaa RESET pinnin IO pinniksi, jonka jälkeen koodin uudelleen puskeminen ei enään onnistu.  
 
-  <details>
-  <summary><b> SKEEMA  </b></summary>
-<img src="skeema.svg" alt="alt" width="100%">
-</details>
+<img src="skema.svg" alt="alt" width="100%">
 
-<details>
-  <summary><b> LEVYT  </b></summary>
-<!-- <img src="skeema.svg" alt="alt" width="100%"> -->
-WIP
-</details>
+## Protolevy mk2
+| Etupuoli <sub>tirsk</sub> | Takapuoli <sub>tirsk</sub> |
+|:---|:---                |
+| <img src="etu.jpg" alt="alt" width="100%">  | <img src="taka.jpg" alt="alt" width="100%"> 
+
 
 ## OSALUETTELO
-|KPL | MITÄ               | Esim    |
+|KPL | MITÄ               | Huomiot    |
 |:---|:---                |---:     |
-| 1  | Attiny a861 SOIC   |         |
-| 64 | 5mm sin. DIP LED   |         |
-| 8  | 110 Ohm 1206        |         |
-| 1  | 10 uF SMD           |         |
+| 1  | Attiny 861A SOIC   |       **U** malli ainakin toimii  |
+| 64 | 5 mm DIP LED         | malli kappaleessa XL-502UBC ledit  |
+| 8  | 110 Ohm 1206        |    Eipä siinä oikeastaan ole väliä    |
+| 1  | 10 uF SMD           |    Virtalähteen virran tasoitusta varten (Ei pakko)    |
 
 | Muuta?  |
 |:---|
 | Joku johto virransyöttä varten |
 | Virtalähde 5V DC |
-| 2 lyhyttä virtakaapelia levyjen yhdistämiseen|
-| Fläshäykseen Arduino ja 6-PIN rima |
-| 2 puoleisia piirilevyjä esim. jyrsimällä |
-| Jotain materiaalia taustapanelia varten |
+| Fläshäykseen Arduino ja 6 pinninen rima |
+| 2 puolinen piirilevy, mallikappele on jyrsitty |
+| Läpivientiniittejä, esim. 0.4 mm niitit 0.8 mm porauksille ja 0.8 mm 1.2 mm...  |
+
+
+
+## Koodi
+```bash
+# Koodin kääntäminen
+cd src/
+avr-gcc -mmcu=attiny861 main.c -I./ -Os -DF_CPU=8000000UL
+```
 
 
 ``` bash
@@ -41,6 +48,5 @@ WIP
 avrdude -c avrips -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0x5f:m
 ```
 
-``` bash
-# Fuse asetuksien nollaaminen 
-```
+## Fuse asetuksien nollaaminen
+Tyliin joku 12V high voltage fuse resetter setuppi tai laita vaan uusi pirii tilalle :D

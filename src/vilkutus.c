@@ -1,11 +1,5 @@
 // vim: foldmethod=marker ft=c
 
-// Vanha kunnon possu ISONA.
-// Jan Äärelä ~ 2025
-// ELEKTRONIIKKAKERHO
-
-// Tämä ajaa LEDit yksi kerrallaan.
-
 // Tuodaan muut tiedostot.
 #include "lediportit.h"
 #include <stdint.h>

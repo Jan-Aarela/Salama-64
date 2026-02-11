@@ -1,7 +1,10 @@
 // vim: foldmethod=marker ft=c
 
-// Vanha kunnon possu ISONA.
-// Jan Äärelä ~ 2025
+// Teinpäs possumerkistä xl-mallin (lisäefekteillä).
+// Toiminta periaate sama kuin possumerkissä.
+// Reset pinni ajettu IO pinniksi fuse asetuksella.
+
+// Jan Äärelä ~ 2026
 // ELEKTRONIIKKAKERHO
 
 // Tuodaan muut tiedotot.
@@ -11,9 +14,6 @@
 
 // Main funktio
 void main(void) {
-
-    // Delay uudelleen flashäysta varten.
-    // _delay_ms(10000);
 
     // Asetetaan kaikki PA ja PB portit outputiksi.
     //       76543210
@@ -26,14 +26,16 @@ void main(void) {
 
     // Tässäpä ne efektit looppaa.
     while (1) {
-        // kaikki(15); // ON
-        // _delay_ms(2000);
-        // kaikki(0); // OFF
-        // _delay_ms(2000);
-        onebyone(1, 5);
-        taytto(3, 4);
-        // himmennys(2, 6); //(kerrat,nopeus)
-        // ympari(6,7);
-        // aalto(10,1);
+        // onebyone(1, 4);
+        taytto(3, 0);
+        himmennys(2, 3);
+        // kaks(3, 1);
+        kolmiot(3, 2);
+        kolari(5, 0);
+        viivat(2, 2);
+        viivat(4, 1);
+        viivat(6, 0);
+        strobe(12, 6);
+        // ympari(3, 4);
     }
 }
