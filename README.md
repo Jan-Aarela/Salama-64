@@ -4,7 +4,7 @@
 
 | Protolevy mk2 | [Selkäsalama](https://github.com/Elektroniikkakerho/Archived-projects/tree/master/salama ) Remake WIP |
 |:---|:---                |
-| <img src="proto.gif" alt="alt" height="400px">  | <img src="selka.png" alt="alt" height="400px">
+| <img src="proto.gif" alt="alt" height="400px">  | <img src="selka.gif" alt="alt" height="400px">
 
 <!-- <img src="proto.gif" alt="alt" width="50%"> -->
 
