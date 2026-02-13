@@ -2,7 +2,11 @@
 
 # Vanha kunnon possu... <b>ISONA!</b>
 
-<img src="proto.gif" alt="alt" width="50%">
+| Protolevy mk2 | [Selkäsalama](https://github.com/Elektroniikkakerho/Archived-projects/tree/master/salama ) Remake WIP |
+|:---|:---                |
+| <img src="proto.gif" alt="alt" height="400px">  | <img src="selka.png" alt="alt" height="400px">
+
+<!-- <img src="proto.gif" alt="alt" width="50%"> -->
 
 ## SKEMA
 Vanha tuttu possusalaman skema, paitsi tässä tuplasti ledejä 8x8 multiplex setupilla.  
