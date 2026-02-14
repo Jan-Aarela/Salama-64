@@ -8,11 +8,21 @@
 
 <!-- <img src="proto.gif" alt="alt" width="50%"> -->
 
-## SKEMA
-Vanha tuttu possusalaman skema, paitsi tässä tuplasti ledejä 8x8 multiplex setupilla.  
+## SKEMAT
+### Salama-64
+
+Vanha tuttu [possusalaman ](https://github.com/Elektroniikkakerho/Led-merkki/tree/master) skema, paitsi tässä tuplasti ledejä 8x8 multiplex setupilla.  
 Fuse asetus ajaa RESET pinnin IO pinniksi, jonka jälkeen koodin uudelleen puskeminen ei enään onnistu.  
 
 <img src="skema.svg" alt="alt" width="100%">
+
+
+### Selkäsalama-64
+Koska selkäsalama koostuu kahdesta eri piirilevystä, yllä olevaan skemaan on lisätty hyppykaapelit, jotka yhdistävät ledien multiplexauksen. mm. J13 --> J14. 
+    
+Skemassa on cyaanin värisiä viivoja, jotka tarkoittavan piirin olevan alemmassa piirilevyssä.
+
+<img src="selka.svg" alt="alt" width="100%">
 
 ## Protolevy mk2
 | Etupuoli <sub>tirsk</sub> | Takapuoli <sub>tirsk</sub> |
@@ -21,20 +31,22 @@ Fuse asetus ajaa RESET pinnin IO pinniksi, jonka jälkeen koodin uudelleen puske
 
 
 ## OSALUETTELO
-|KPL | MITÄ               | Huomiot    |
-|:---:|:---                |:---     |
-| 1  | Attiny 861A SOIC   |       **U** malli ainakin toimii  |
-| 64 | 5mm DIP LED         | Mallikappaleessa XL-502UBC ledit  |
-| 8  | 110Ohm 1206        |    MAX 40ma per IO pin    |
-| 1  | 10uF TANT. SMD           |    Virtalähteen virran tasoitusta varten (optional)    |
+| KPL | MITÄ               | HUOM    |
+|:---:|:---                |:---    |
+|  1  | ATtiny 861A SOIC   |       **U** malli ainakin toimii  |
+|  64 | 5mm DIP LED        | Mallikappaleessa XL-502UBC ledit  |
+|  8  | 110Ohm 1206        |    < 40ma per IO pin    |
+|  1  | 10uF tant. SMD     |    Virtalähteen virran tasoitusta varten (optional)    |
+
 
 | Muuta?  |
 |:---|
-| Joku johto virransyöttä varten |
+| Joku kaapeli virransyöttä varten |
 | Virtalähde 5V DC |
 | Fläshäykseen Arduino ja 6 pinninen rima |
 | 2 puolinen piirilevy, mallikappele on jyrsitty |
 | Läpivientiniittejä, esim. 0.4mm niitit 0.8mm porauksille ja 0.8mm 1.2mm...  |
+| Selkäsalamaan hyppykaapeleita |
 
 ## Koodi
 ```bash
