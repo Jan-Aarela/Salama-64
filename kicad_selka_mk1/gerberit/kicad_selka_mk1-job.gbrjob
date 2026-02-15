@@ -5,17 +5,17 @@
       "Application": "Pcbnew",
       "Version": "9.0.7"
     },
-    "CreationDate": "2026-02-10T16:13:09+02:00"
+    "CreationDate": "2026-02-15T20:35:59+02:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "sik_ledimössö",
-      "GUID": "73696b5f-6c65-4646-996d-f67373f62e6b",
+      "Name": "kicad_selka_mk1",
+      "GUID": "6b696361-645f-4736-956c-6b615f6d6b31",
       "Revision": "rev?"
     },
     "Size": {
-      "X": 96.57,
-      "Y": 161.3441
+      "X": 89.1632,
+      "Y": 194.1705
     },
     "LayerNumber": 2,
     "BoardThickness": 1.6,
@@ -34,17 +34,27 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "sik_ledimössö-F_Cu.gbr",
+      "Path": "kicad_selka_mk1-F_Cu.gbr",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "sik_ledimössö-B_Cu.gbr",
+      "Path": "kicad_selka_mk1-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "sik_ledimössö-Edge_Cuts.gbr",
+      "Path": "kicad_selka_mk1-F_Mask.gbr",
+      "FileFunction": "SolderMask,Top",
+      "FilePolarity": "Negative"
+    },
+    {
+      "Path": "kicad_selka_mk1-B_Mask.gbr",
+      "FileFunction": "SolderMask,Bot",
+      "FilePolarity": "Negative"
+    },
+    {
+      "Path": "kicad_selka_mk1-Edge_Cuts.gbr",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }
@@ -60,6 +70,7 @@
     },
     {
       "Type": "SolderMask",
+      "Color": "Green",
       "Thickness": 0.01,
       "Name": "Top Solder Mask"
     },
@@ -82,6 +93,7 @@
     },
     {
       "Type": "SolderMask",
+      "Color": "Green",
       "Thickness": 0.01,
       "Name": "Bottom Solder Mask"
     },
