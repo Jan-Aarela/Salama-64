@@ -27,15 +27,17 @@ void main(void) {
     // Tässäpä ne efektit looppaa.
     while (1) {
         // onebyone(1, 4);
-        taytto(3, 0);
-        himmennys(2, 3);
         // kaks(3, 1);
-        kolmiot(3, 2);
-        kolari(5, 0);
-        viivat(2, 2);
-        viivat(4, 1);
-        viivat(6, 0);
-        strobe(12, 6);
         // ympari(3, 4);
+        // alas(2, 2);
+        // taytto(3, 0);
+        kaikki(15);
+        // himmennys(2, 3);
+        // kolmiotk(3, 2);
+        // kolari(5, 0);
+        // viivatk(2, 2);
+        // viivatk(4, 1);
+        // viivatk(6, 0);
+        // strobe(12, 6);
     }
 }

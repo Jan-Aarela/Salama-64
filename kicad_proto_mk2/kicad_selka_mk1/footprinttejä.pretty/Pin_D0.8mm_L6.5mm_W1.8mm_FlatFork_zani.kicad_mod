@@ -1,0 +1,220 @@
+(footprint "Pin_D0.8mm_L6.5mm_W1.8mm_FlatFork_zani"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "solder Pin_ with flat fork, hole diameter 0.7mm, length 6.5mm, width 1.8mm")
+	(tags "solder Pin_ with flat fork")
+	(property "Reference" "J10"
+		(at 0 1.8 0)
+		(layer "F.SilkS")
+		(uuid "069c7397-3952-4fc1-a882-837dc1e49742")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Conn_01x01_Pin"
+		(at 0 -1.8 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c5c6531a-1d33-4f47-9b94-f05db68e908a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "~"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "06e13d47-2193-475e-8702-9c9f728e8bd5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Generic connector, single row, 01x01, script generated"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "31bdc955-bb1a-45de-9c29-31044af253db")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -0.95 -0.95)
+		(end -0.95 0.95)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "bb048b3a-c018-4fff-abc0-cd56c36913dd")
+	)
+	(fp_line
+		(start -0.95 0.95)
+		(end 0.900001 0.95)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "bc9e1dc4-a051-4914-b4fb-52a98ed11985")
+	)
+	(fp_line
+		(start 0.9 -0.9)
+		(end 0.900001 -0.95)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9d6e94e1-cedd-4eff-a3b6-fd1406c67a72")
+	)
+	(fp_line
+		(start 0.900001 -0.95)
+		(end -0.95 -0.95)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "03491403-f152-42a1-9cff-f8c8c33ee7eb")
+	)
+	(fp_line
+		(start 0.900001 0.95)
+		(end 0.9 -0.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f366c80a-51c5-4993-b127-6ac629c7c56d")
+	)
+	(fp_line
+		(start -1.4 -1.200001)
+		(end -1.4 1.200001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e780d28f-0cb7-42b5-a33d-7114715e7d7c")
+	)
+	(fp_line
+		(start -1.4 -1.200001)
+		(end 1.35 -1.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "af6d85a1-5c36-452c-83a7-d3a505062084")
+	)
+	(fp_line
+		(start 1.35 1.2)
+		(end -1.4 1.200001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "7f29d58d-6dd4-4f5a-a2a0-7fdc8b12475d")
+	)
+	(fp_line
+		(start 1.35 1.2)
+		(end 1.35 -1.2)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "788f724f-58e0-4d2f-8c09-7c5d14a02076")
+	)
+	(fp_line
+		(start -0.9 -0.25)
+		(end 0.85 -0.25)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "0b618a6c-387d-404e-b8f3-02bd3ec911b5")
+	)
+	(fp_line
+		(start -0.9 0.25)
+		(end -0.9 -0.25)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "c1f9f544-7ae1-4edf-82fd-e6b84551a735")
+	)
+	(fp_line
+		(start 0.85 -0.25)
+		(end 0.85 0.25)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e7121751-11b0-4285-91ee-08f5250c94a9")
+	)
+	(fp_line
+		(start 0.85 0.25)
+		(end -0.9 0.25)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8d0baa9b-bbca-477d-beef-c68c3ed69aa5")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 1.8 0)
+		(layer "F.Fab")
+		(uuid "de062f36-f1d0-4e90-874a-830b87192629")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.4 1.4)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers yes)
+		(keep_end_layers yes)
+		(uuid "a7a6bbdb-560c-4dfc-b120-94735aeb987e")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Connector_Pin.3dshapes/Pin_D0.7mm_L6.5mm_W1.8mm_FlatFork.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

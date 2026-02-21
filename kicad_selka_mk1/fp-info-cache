@@ -1,4 +1,4 @@
-26178442868259781
+26180214509945228
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -104243,3 +104243,10 @@ Varistor VF
 0
 2
 2
+footprinttejä
+Pin_D0.8mm_L6.5mm_W1.8mm_FlatFork_zani
+solder Pin_ with flat fork, hole diameter 0.7mm, length 6.5mm, width 1.8mm
+solder Pin_ with flat fork
+0
+1
+1

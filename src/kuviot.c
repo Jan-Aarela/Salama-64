@@ -158,6 +158,78 @@ void viivat(uint16_t kerrat, uint8_t nopeus) {
 }
 // }}}
 
+// Viivatk {{{
+void viivatk(uint16_t kerrat, uint8_t nopeus) {
+    uint8_t i;
+    uint8_t j;
+    uint8_t r;
+    uint16_t k; // kerrat
+    for (k = 0; k < kerrat; k++) {
+
+        // 1. ledijono
+        for (i = 0; i <= 25; i++) {
+            kirkkaus[i] = 15;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+        for (i = 0; i <= 25; i++) {
+            kirkkaus[i] = 0;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+
+        // 2. ledijono
+        for (i = 25; i <= 39; i++) {
+            kirkkaus[i] = 15;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+        for (i = 25; i <= 39; i++) {
+            kirkkaus[i] = 0;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+
+        // 3. ledijono
+        for (i = 39; i <= 50; i++) {
+            kirkkaus[i] = 15;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+        for (i = 39; i <= 50; i++) {
+            kirkkaus[i] = 0;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+
+        // 4. ledijono
+        for (i = 50; i <= 63; i++) {
+            kirkkaus[i] = 15;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+        for (i = 50; i <= 63; i++) {
+            kirkkaus[i] = 0;
+        }
+        for (j = 0; j <= nopeus; j++) {
+            vilkutus();
+        }
+    }
+    // Ledien nollaus
+    for (i = 50; i <= 63; i++) {
+        kirkkaus[i] = 0;
+    }
+    vilkutus();
+}
+// }}}
+
 // Kolari {{{
 void kolari(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
@@ -307,6 +379,220 @@ void kolmiot(uint16_t kerrat, uint8_t nopeus) {
         kirkkaus[i] = 0;
     }
     vilkutus();
+}
+// }}}
+
+// Kolmiotk {{{
+void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
+    uint8_t i;
+    int8_t w;
+    int8_t v;   // vrit
+    uint16_t k; // kerrat
+
+    for (k = 0; k < kerrat; k++) {
+        for (v = 0, w = 15; v <= 15, w >= 0; v++, w--) {
+            for (i = 0; i <= 12; i++) {
+                kirkkaus[i] = v;
+            }
+            for (i = 45; i <= 63; i++) {
+                kirkkaus[i] = v;
+            }
+            for (i = 13; i <= 43; i++) {
+                kirkkaus[i] = w;
+            }
+
+            for (i = 0; i <= nopeus; i++) {
+                vilkutus();
+            }
+        }
+
+        for (v = 15, w = 0; v >= 0, w <= 15; v--, w++) {
+            for (i = 0; i <= 12; i++) {
+                kirkkaus[i] = v;
+            }
+            for (i = 45; i <= 63; i++) {
+                kirkkaus[i] = v;
+            }
+            for (i = 13; i <= 43; i++) {
+                kirkkaus[i] = w;
+            }
+
+            for (i = 0; i <= nopeus; i++) {
+                vilkutus();
+            }
+        }
+    }
+    for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = 0;
+    }
+    vilkutus();
+}
+// }}}
+
+// Alas {{{
+void alas(uint16_t kerrat, uint8_t nopeus) {
+    uint8_t i;
+    uint8_t j;
+    uint8_t r;
+    uint16_t k; // kerrat
+    for (k = 0; k < kerrat; k++) {
+        for (i = 0; i <= 12; i++) {
+            kirkkaus[i] = 15;
+            for (j = 0; j <= nopeus; j++) {
+                vilkutus();
+            }
+            for (r = 0; r <= 63; r++) {
+                if (kirkkaus[r] == 15) {
+                    kirkkaus[r] = 14;
+                } else if (kirkkaus[r] == 14) {
+                    kirkkaus[r] = 13;
+                } else if (kirkkaus[r] == 13) {
+                    kirkkaus[r] = 12;
+                } else if (kirkkaus[r] == 12) {
+                    kirkkaus[r] = 11;
+                } else if (kirkkaus[r] == 11) {
+                    kirkkaus[r] = 10;
+                } else if (kirkkaus[r] == 10) {
+                    kirkkaus[r] = 9;
+                } else if (kirkkaus[r] == 9) {
+                    kirkkaus[r] = 8;
+                } else if (kirkkaus[r] == 8) {
+                    kirkkaus[r] = 7;
+                } else if (kirkkaus[r] == 7) {
+                    kirkkaus[r] = 6;
+                } else if (kirkkaus[r] == 6) {
+                    kirkkaus[r] = 5;
+                } else if (kirkkaus[r] == 5) {
+                    kirkkaus[r] = 4;
+                } else if (kirkkaus[r] == 4) {
+                    kirkkaus[r] = 3;
+                } else if (kirkkaus[r] == 3) {
+                    kirkkaus[r] = 2;
+                } else if (kirkkaus[r] == 2) {
+                    kirkkaus[r] = 1;
+                } else if (kirkkaus[r] == 1) {
+                    kirkkaus[r] = 0;
+                }
+            }
+        }
+        for (i = 44; i >= 26; i--) {
+            kirkkaus[i] = 15;
+            for (j = 0; j <= nopeus; j++) {
+                vilkutus();
+            }
+            for (r = 0; r <= 63; r++) {
+                if (kirkkaus[r] == 15) {
+                    kirkkaus[r] = 14;
+                } else if (kirkkaus[r] == 14) {
+                    kirkkaus[r] = 13;
+                } else if (kirkkaus[r] == 13) {
+                    kirkkaus[r] = 12;
+                } else if (kirkkaus[r] == 12) {
+                    kirkkaus[r] = 11;
+                } else if (kirkkaus[r] == 11) {
+                    kirkkaus[r] = 10;
+                } else if (kirkkaus[r] == 10) {
+                    kirkkaus[r] = 9;
+                } else if (kirkkaus[r] == 9) {
+                    kirkkaus[r] = 8;
+                } else if (kirkkaus[r] == 8) {
+                    kirkkaus[r] = 7;
+                } else if (kirkkaus[r] == 7) {
+                    kirkkaus[r] = 6;
+                } else if (kirkkaus[r] == 6) {
+                    kirkkaus[r] = 5;
+                } else if (kirkkaus[r] == 5) {
+                    kirkkaus[r] = 4;
+                } else if (kirkkaus[r] == 4) {
+                    kirkkaus[r] = 3;
+                } else if (kirkkaus[r] == 3) {
+                    kirkkaus[r] = 2;
+                } else if (kirkkaus[r] == 2) {
+                    kirkkaus[r] = 1;
+                } else if (kirkkaus[r] == 1) {
+                    kirkkaus[r] = 0;
+                }
+            }
+        }
+        for (i = 63; i >= 45; i++) {
+            kirkkaus[i] = 15;
+            for (j = 0; j <= nopeus; j++) {
+                vilkutus();
+            }
+            for (r = 0; r <= 63; r++) {
+                if (kirkkaus[r] == 15) {
+                    kirkkaus[r] = 14;
+                } else if (kirkkaus[r] == 14) {
+                    kirkkaus[r] = 13;
+                } else if (kirkkaus[r] == 13) {
+                    kirkkaus[r] = 12;
+                } else if (kirkkaus[r] == 12) {
+                    kirkkaus[r] = 11;
+                } else if (kirkkaus[r] == 11) {
+                    kirkkaus[r] = 10;
+                } else if (kirkkaus[r] == 10) {
+                    kirkkaus[r] = 9;
+                } else if (kirkkaus[r] == 9) {
+                    kirkkaus[r] = 8;
+                } else if (kirkkaus[r] == 8) {
+                    kirkkaus[r] = 7;
+                } else if (kirkkaus[r] == 7) {
+                    kirkkaus[r] = 6;
+                } else if (kirkkaus[r] == 6) {
+                    kirkkaus[r] = 5;
+                } else if (kirkkaus[r] == 5) {
+                    kirkkaus[r] = 4;
+                } else if (kirkkaus[r] == 4) {
+                    kirkkaus[r] = 3;
+                } else if (kirkkaus[r] == 3) {
+                    kirkkaus[r] = 2;
+                } else if (kirkkaus[r] == 2) {
+                    kirkkaus[r] = 1;
+                } else if (kirkkaus[r] == 1) {
+                    kirkkaus[r] = 0;
+                }
+            }
+        }
+        for (i = 13; i <= 25; i++) {
+            kirkkaus[i] = 15;
+            for (j = 0; j <= nopeus; j++) {
+                vilkutus();
+            }
+            for (r = 0; r <= 63; r++) {
+                if (kirkkaus[r] == 15) {
+                    kirkkaus[r] = 14;
+                } else if (kirkkaus[r] == 14) {
+                    kirkkaus[r] = 13;
+                } else if (kirkkaus[r] == 13) {
+                    kirkkaus[r] = 12;
+                } else if (kirkkaus[r] == 12) {
+                    kirkkaus[r] = 11;
+                } else if (kirkkaus[r] == 11) {
+                    kirkkaus[r] = 10;
+                } else if (kirkkaus[r] == 10) {
+                    kirkkaus[r] = 9;
+                } else if (kirkkaus[r] == 9) {
+                    kirkkaus[r] = 8;
+                } else if (kirkkaus[r] == 8) {
+                    kirkkaus[r] = 7;
+                } else if (kirkkaus[r] == 7) {
+                    kirkkaus[r] = 6;
+                } else if (kirkkaus[r] == 6) {
+                    kirkkaus[r] = 5;
+                } else if (kirkkaus[r] == 5) {
+                    kirkkaus[r] = 4;
+                } else if (kirkkaus[r] == 4) {
+                    kirkkaus[r] = 3;
+                } else if (kirkkaus[r] == 3) {
+                    kirkkaus[r] = 2;
+                } else if (kirkkaus[r] == 2) {
+                    kirkkaus[r] = 1;
+                } else if (kirkkaus[r] == 1) {
+                    kirkkaus[r] = 0;
+                }
+            }
+        }
+    }
 }
 // }}}
 

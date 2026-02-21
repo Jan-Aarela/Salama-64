@@ -188,6 +188,8 @@
       ],
       "track_widths": [
         0.0,
+        0.25,
+        0.4,
         0.5
       ],
       "tuning_pattern_settings": {
@@ -222,8 +224,8 @@
           "drill": 0.0
         },
         {
-          "diameter": 0.9,
-          "drill": 0.5
+          "diameter": 0.6,
+          "drill": 0.3
         },
         {
           "diameter": 1.2,
@@ -480,7 +482,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.5,
+        "clearance": 0.4,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -491,7 +493,7 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.4,
         "via_diameter": 1.2,
         "via_drill": 0.6,
         "wire_width": 6
@@ -509,10 +511,10 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "gerberit/",
-      "pos_files": "",
+      "plot": "gerberit_ala/",
+      "pos_files": "/home/jan-aarela/salamaasd/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "kicad_selka_mk1.stl",
       "svg": "",
       "vrml": ""
     },
