@@ -30,14 +30,14 @@ void main(void) {
         // kaks(3, 1);
         // ympari(3, 4);
         // alas(2, 2);
-        // taytto(3, 0);
-        kaikki(15);
-        // himmennys(2, 3);
-        // kolmiotk(3, 2);
-        // kolari(5, 0);
-        // viivatk(2, 2);
-        // viivatk(4, 1);
-        // viivatk(6, 0);
-        // strobe(12, 6);
+        taytto(3, 1);
+        // kaikki(15);
+        himmennys(2, 7);
+        kolmiotk(3, 4);
+        kolari(5, 1);
+        viivatk(4, 6);
+        viivatk(3, 3);
+        viivatk(7, 1);
+        strobe(12, 12);
     }
 }

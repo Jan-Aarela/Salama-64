@@ -278,6 +278,10 @@ void kolari(uint16_t kerrat, uint8_t nopeus) {
             }
         }
     }
+    for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = 0;
+    }
+    vilkutus();
 }
 // }}}
 
@@ -397,7 +401,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
             for (i = 45; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
-            for (i = 13; i <= 43; i++) {
+            for (i = 13; i <= 44; i++) {
                 kirkkaus[i] = w;
             }
 
@@ -413,7 +417,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
             for (i = 45; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
-            for (i = 13; i <= 43; i++) {
+            for (i = 13; i <= 44; i++) {
                 kirkkaus[i] = w;
             }
 
@@ -514,7 +518,7 @@ void alas(uint16_t kerrat, uint8_t nopeus) {
                 }
             }
         }
-        for (i = 63; i >= 45; i++) {
+        for (i = 63; i >= 45; i--) {
             kirkkaus[i] = 15;
             for (j = 0; j <= nopeus; j++) {
                 vilkutus();

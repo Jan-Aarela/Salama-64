@@ -4,9 +4,9 @@
 
 # Vanha kunnon possu... <b>ISONA!</b>
 
-| Protolevy mk2 | [Selkäsalama](https://github.com/Elektroniikkakerho/Archived-projects/tree/master/salama ) Remake WIP |
+| Protolevy mk2 | [Selkäsalama](https://github.com/Elektroniikkakerho/Archived-projects/tree/master/salama ) Remake |
 |:---|:---                |
-| <img src="media/proto.gif" alt="alt" height="400px">  | <img src="media/selka.gif" alt="alt" height="400px">
+| <img src="media/proto.gif" alt="alt" height="400px">  | <img src="media/selkatoimiva.gif" alt="alt" height="400px">
 
 <!-- <img src="proto.gif" alt="alt" width="50%"> -->
 
@@ -22,7 +22,7 @@ Fuse asetus ajaa RESET pinnin IO pinniksi, jonka jälkeen koodin uudelleen puske
 ### Selkäsalama-64
 Koska selkäsalama koostuu kahdesta eri piirilevystä, yllä olevaan skemaan on lisätty hyppykaapelit, jotka yhdistävät ledien multiplexauksen. mm. J13 --> J14.
 
-Koska levy on niin täynnä traceja (tai meikä niin huono leiskoissa), varsinaista piikkirimaa ohjelmoinille en laittanut. Levyssä on 4 pientä testi pädiä (lähellä piiriä), joihin juotetaan ohjelmointi kaapelit (RESET, SCK, MOSI JA MISO). Sama homma GND ja 5V. Ohjelmoinnin aikana, voit käyttää kondensaattorin pädejä.
+Koska levy on niin täynnä traceja (tai meikä niin huono leiskoissa), varsinaista piikkirimaa ohjelmoinille en laittanut. Levyssä on 4 pientä testi pädiä (lähellä piiriä), joihin juotetaan ohjelmointi kaapelit (RESET, SCK, MOSI JA MISO). Sama homma GND ja 5V. Ohjelmoinnin aikana, voit käyttää kuormavastuksen pädejä.
 
 Skemassa on cyaanin värisiä viivoja, jotka tarkoittavan piirin olevan alemmassa piirilevyssä.
 
@@ -60,12 +60,12 @@ cd src/
 # Koodin kääntäminen
 avr-gcc -mmcu=attiny861 main.c -I./ -Os -DF_CPU=8000000UL
 
-# Fuse asetukset testaukseen  (huom. 8 lediä ei toimi)
-avrdude -c avrips -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0xdf:m
+# Fuse asetukset mm. efektien testaukseen... (huom. 8 lediä ei toimi)
+avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0xdf:m
 
 # Lopulliset fuse asetukset  (Reset pin --> IO pin) 
 # Kaikki ledit toimii, mutta tämän jälkeen et pysty puskea uutta koodia!!! 
-avrdude -c avrips -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0x5f:m
+avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0x5f:m
 ```
 
 

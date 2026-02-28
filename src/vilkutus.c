@@ -6,39 +6,44 @@
 #include <util/delay.h>
 int8_t kirkkaus[64] = { 0 };
 
+// Possusalaman delay arvoja puolittu,
+// sillä ledejä on tuplasti, niin koko syklin aika on myös tuplasti pidempi.
+// Arvot oli 312 ja olisi ollut ~ 50Hz
+// Nyt:  156us * 64 ledejä -> 100Hz.
+
 ///     K0 0
-#define K1 0.001
-#define K2 0.2
-#define K3 1
-#define K4 2
-#define K5 4
-#define K6 8
-#define K7 14
-#define K8 27
-#define K9 50
-#define K10 80
-#define K11 110
-#define K12 160
-#define K13 200
-#define K14 250
-#define K15 312
+#define K1 0.0005
+#define K2 0.1
+#define K3 0.5
+#define K4 1
+#define K5 2
+#define K6 4
+#define K7 7
+#define K8 13.5
+#define K9 25
+#define K10 40
+#define K11 55
+#define K12 80
+#define K13 100
+#define K14 125
+#define K15 156
 
 /// pimeä vaihe
-#define P0 312
-#define P1 312 - K1
-#define P2 312 - K2
-#define P3 312 - K3
-#define P4 312 - K4
-#define P5 312 - K5
-#define P6 312 - K6
-#define P7 312 - K7
-#define P8 312 - K8
-#define P9 312 - K9
-#define P10 312 - K10
-#define P11 312 - K11
-#define P12 312 - K12
-#define P13 312 - K13
-#define P14 312 - K14
+#define P0 156
+#define P1 156 - K1
+#define P2 156 - K2
+#define P3 156 - K3
+#define P4 156 - K4
+#define P5 156 - K5
+#define P6 156 - K6
+#define P7 156 - K7
+#define P8 156 - K8
+#define P9 156 - K9
+#define P10 156 - K10
+#define P11 156 - K11
+#define P12 156 - K12
+#define P13 156 - K13
+#define P14 156 - K14
 #define P15 0
 
 void vilkutus(void) {
