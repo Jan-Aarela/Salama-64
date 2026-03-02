@@ -6,7 +6,7 @@
 
 //  MCU Pinnit P*     76543210
 uint8_t alloff_pa = 0b00000000;
-uint8_t alloff_pb = 0b00000000;
+uint8_t alloff_pb = 0b11111111;
 
 // Esim. 46. led toimii kun PA5 HIGH ja PB4 LOW.
 

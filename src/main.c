@@ -24,20 +24,34 @@ void main(void) {
     PORTA = 0b00000000;
     PORTB = 0b00000000;
 
+    uint8_t loop;
+
     // Tässäpä ne efektit looppaa.
     while (1) {
+
+        // Testaus kamaa
         // onebyone(1, 4);
-        // kaks(3, 1);
-        // ympari(3, 4);
-        // alas(2, 2);
-        taytto(3, 1);
+        // kirkkaustesti();
         // kaikki(15);
-        himmennys(2, 7);
-        kolmiotk(3, 4);
-        kolari(5, 1);
+
+        // Strobo alku
+        viivatk(3, 10);
         viivatk(4, 6);
-        viivatk(3, 3);
-        viivatk(7, 1);
-        strobe(12, 12);
+        viivatk(7, 2);
+        viivatk(14, 0);
+        strobe(24, 11);
+        tyhjennys(1);
+
+        // Looppaa muut efektit
+        for (loop = 0; loop < 7; loop++) {
+            taytto(3, 1);
+            himmennys(2, 7);
+            kaks(4, 1);
+            // vastakkain(4, 2);
+            ympari(4, 2);
+            kolmiotk(4, 4);
+            kolari(6, 1);
+            alas(12, 0);
+        }
     }
 }
