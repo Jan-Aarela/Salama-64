@@ -6,12 +6,14 @@
 #include <util/delay.h>
 int8_t kirkkaus[64] = { 0 };
 
+// PWM Ajoitukset {{{
+
 // Possusalaman delay arvoja puolittu,
 // sillä ledejä on tuplasti, niin koko syklin aika on myös tuplasti pidempi.
 // Arvot oli 312 ja olisi ollut ~ 50Hz
-// Nyt:  156us * 64 ledejä -> 100Hz.
+// Nyt:  156us * 64 ledejä ~> 100Hz.
 
-#define K0 0
+// Kirkas vaihe
 #define K1 0.0005
 #define K2 0.1
 #define K3 0.5
@@ -28,7 +30,7 @@ int8_t kirkkaus[64] = { 0 };
 #define K14 125
 #define K15 156
 
-/// pimeä vaihe
+/// Pimeä vaihe
 #define P0 156
 #define P1 156 - K1
 #define P2 156 - K2
@@ -44,29 +46,29 @@ int8_t kirkkaus[64] = { 0 };
 #define P12 156 - K12
 #define P13 156 - K13
 #define P14 156 - K14
-#define P15 0
+// }}}
 
+// Ledien vikuttaminen {{{
 void vilkutus(void) {
     uint8_t led = 0;
     int8_t *kirkptr;
-
     uint8_t *paptr;
     uint8_t *pbptr;
     kirkptr = &kirkkaus[0]; // kirkkaustaulukon pointteri
     paptr = &pa[0];         // PortA taulukon pointteri
     pbptr = &pb[0];
+
     while (led < 64) {
         switch (*kirkptr) {
-
         case 0:
             _delay_us(P0);
             break;
         case 1:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K1);
-            PORTB = alloff_pb;
-            _delay_us(P1);
+            PORTA = *paptr;    // Ledin multiplex rivi high
+            PORTB = *pbptr;    // Ledin multiplex sarakke low
+            _delay_us(K1);     // Venäilua kun ledi on päällä
+            PORTB = alloff_pb; // Sammuta kakki ledit (kaikki PB high)
+            _delay_us(P1);     // Venailua kun kaikki ledit pois päältä
             break;
         case 2:
             PORTA = *paptr;
@@ -175,3 +177,4 @@ void vilkutus(void) {
         led++;
     }
 }
+// }}}
