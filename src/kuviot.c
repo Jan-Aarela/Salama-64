@@ -1,7 +1,7 @@
 // vim: foldmethod=marker ft=c
 
 // Tuodaan muut tiedostot.
-#include "vilkutus.c"
+#include "vilkutus_2x.c"
 #include <avr/io.h>
 #include <stdint.h>
 
@@ -36,7 +36,7 @@ void himmennys(uint16_t kerrat,
     int8_t v;   // vrit
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
-        for (v = 0; v <= 15; v++) {
+        for (v = 1; v <= 15; v++) {
             for (i = 0; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
@@ -45,7 +45,7 @@ void himmennys(uint16_t kerrat,
             }
         }
 
-        for (v = 15; v >= 0; v--) {
+        for (v = 15; v >= 1; v--) {
             for (i = 0; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
@@ -292,6 +292,7 @@ void viivatk(uint16_t kerrat, uint8_t nopeus) {
         }
         for (i = 50; i <= 63; i++) {
             kirkkaus[i] = 0;
+            kirkkaus[0] = 0;
         }
         for (j = 0; j <= nopeus; j++) {
             vilkutus();
@@ -318,37 +319,9 @@ void kolari(uint16_t kerrat, uint8_t nopeus) {
             for (j = 0; j <= nopeus; j++) {
                 vilkutus();
             }
-            for (r = 0; r <= 63; r++) {
-                if (kirkkaus[r] == 15) {
-                    kirkkaus[r] = 14;
-                } else if (kirkkaus[r] == 14) {
-                    kirkkaus[r] = 13;
-                } else if (kirkkaus[r] == 13) {
-                    kirkkaus[r] = 12;
-                } else if (kirkkaus[r] == 12) {
-                    kirkkaus[r] = 11;
-                } else if (kirkkaus[r] == 11) {
-                    kirkkaus[r] = 10;
-                } else if (kirkkaus[r] == 10) {
-                    kirkkaus[r] = 9;
-                } else if (kirkkaus[r] == 9) {
-                    kirkkaus[r] = 8;
-                } else if (kirkkaus[r] == 8) {
-                    kirkkaus[r] = 7;
-                } else if (kirkkaus[r] == 7) {
-                    kirkkaus[r] = 6;
-                } else if (kirkkaus[r] == 6) {
-                    kirkkaus[r] = 5;
-                } else if (kirkkaus[r] == 5) {
-                    kirkkaus[r] = 4;
-                } else if (kirkkaus[r] == 4) {
-                    kirkkaus[r] = 3;
-                } else if (kirkkaus[r] == 3) {
-                    kirkkaus[r] = 2;
-                } else if (kirkkaus[r] == 2) {
-                    kirkkaus[r] = 1;
-                } else if (kirkkaus[r] == 1) {
-                    kirkkaus[r] = 0;
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
                 }
             }
         }
@@ -371,43 +344,16 @@ void kaks(uint16_t kerrat, uint8_t nopeus) {
             kirkkaus[i] = 15;
             if (i <= 40) {
                 kirkkaus[i + 23] = 15;
-            } else {
+            }
+            else {
                 kirkkaus[i - 41] = 15;
             }
             for (j = 0; j <= nopeus; j++) {
                 vilkutus();
             }
-            for (r = 0; r <= 63; r++) {
-                if (kirkkaus[r] == 15) {
-                    kirkkaus[r] = 14;
-                } else if (kirkkaus[r] == 14) {
-                    kirkkaus[r] = 13;
-                } else if (kirkkaus[r] == 13) {
-                    kirkkaus[r] = 12;
-                } else if (kirkkaus[r] == 12) {
-                    kirkkaus[r] = 11;
-                } else if (kirkkaus[r] == 11) {
-                    kirkkaus[r] = 10;
-                } else if (kirkkaus[r] == 10) {
-                    kirkkaus[r] = 9;
-                } else if (kirkkaus[r] == 9) {
-                    kirkkaus[r] = 8;
-                } else if (kirkkaus[r] == 8) {
-                    kirkkaus[r] = 7;
-                } else if (kirkkaus[r] == 7) {
-                    kirkkaus[r] = 6;
-                } else if (kirkkaus[r] == 6) {
-                    kirkkaus[r] = 5;
-                } else if (kirkkaus[r] == 5) {
-                    kirkkaus[r] = 4;
-                } else if (kirkkaus[r] == 4) {
-                    kirkkaus[r] = 3;
-                } else if (kirkkaus[r] == 3) {
-                    kirkkaus[r] = 2;
-                } else if (kirkkaus[r] == 2) {
-                    kirkkaus[r] = 1;
-                } else if (kirkkaus[r] == 1) {
-                    kirkkaus[r] = 0;
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
                 }
             }
         }
@@ -473,7 +419,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
     uint16_t k; // kerrat
 
     for (k = 0; k < kerrat; k++) {
-        for (v = 0, w = 15; v <= 15, w >= 0; v++, w--) {
+        for (v = 1, w = 15; v <= 15, w >= 1; v++, w--) {
             for (i = 0; i <= 12; i++) {
                 kirkkaus[i] = v;
             }
@@ -489,7 +435,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
             }
         }
 
-        for (v = 15, w = 0; v >= 0, w <= 15; v--, w++) {
+        for (v = 15, w = 1; v >= 1, w <= 15; v--, w++) {
             for (i = 0; i <= 12; i++) {
                 kirkkaus[i] = v;
             }
@@ -538,37 +484,9 @@ void alas(uint16_t kerrat, uint8_t nopeus) {
             for (j = 0; j <= nopeus; j++) {
                 vilkutus();
             }
-            for (r = 0; r <= 63; r++) {
-                if (kirkkaus[r] == 15) {
-                    kirkkaus[r] = 14;
-                } else if (kirkkaus[r] == 14) {
-                    kirkkaus[r] = 13;
-                } else if (kirkkaus[r] == 13) {
-                    kirkkaus[r] = 12;
-                } else if (kirkkaus[r] == 12) {
-                    kirkkaus[r] = 11;
-                } else if (kirkkaus[r] == 11) {
-                    kirkkaus[r] = 10;
-                } else if (kirkkaus[r] == 10) {
-                    kirkkaus[r] = 9;
-                } else if (kirkkaus[r] == 9) {
-                    kirkkaus[r] = 8;
-                } else if (kirkkaus[r] == 8) {
-                    kirkkaus[r] = 7;
-                } else if (kirkkaus[r] == 7) {
-                    kirkkaus[r] = 6;
-                } else if (kirkkaus[r] == 6) {
-                    kirkkaus[r] = 5;
-                } else if (kirkkaus[r] == 5) {
-                    kirkkaus[r] = 4;
-                } else if (kirkkaus[r] == 4) {
-                    kirkkaus[r] = 3;
-                } else if (kirkkaus[r] == 3) {
-                    kirkkaus[r] = 2;
-                } else if (kirkkaus[r] == 2) {
-                    kirkkaus[r] = 1;
-                } else if (kirkkaus[r] == 1) {
-                    kirkkaus[r] = 0;
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
                 }
             }
         }
@@ -595,37 +513,9 @@ void vastakkain(uint16_t kerrat, uint8_t nopeus) {
             for (r = 0; r <= nopeus; r++) {
                 vilkutus();
             }
-            for (r = 0; r <= 63; r++) {
-                if (kirkkaus[r] == 15) {
-                    kirkkaus[r] = 14;
-                } else if (kirkkaus[r] == 14) {
-                    kirkkaus[r] = 13;
-                } else if (kirkkaus[r] == 13) {
-                    kirkkaus[r] = 12;
-                } else if (kirkkaus[r] == 12) {
-                    kirkkaus[r] = 11;
-                } else if (kirkkaus[r] == 11) {
-                    kirkkaus[r] = 10;
-                } else if (kirkkaus[r] == 10) {
-                    kirkkaus[r] = 9;
-                } else if (kirkkaus[r] == 9) {
-                    kirkkaus[r] = 8;
-                } else if (kirkkaus[r] == 8) {
-                    kirkkaus[r] = 7;
-                } else if (kirkkaus[r] == 7) {
-                    kirkkaus[r] = 6;
-                } else if (kirkkaus[r] == 6) {
-                    kirkkaus[r] = 5;
-                } else if (kirkkaus[r] == 5) {
-                    kirkkaus[r] = 4;
-                } else if (kirkkaus[r] == 4) {
-                    kirkkaus[r] = 3;
-                } else if (kirkkaus[r] == 3) {
-                    kirkkaus[r] = 2;
-                } else if (kirkkaus[r] == 2) {
-                    kirkkaus[r] = 1;
-                } else if (kirkkaus[r] == 1) {
-                    kirkkaus[r] = 0;
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
                 }
             }
         }

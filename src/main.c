@@ -29,29 +29,38 @@ void main(void) {
     // Tässäpä ne efektit looppaa.
     while (1) {
 
+        // taytto(3, 1);
+        // kolari(6, 1);
+        // himmennys(2, 7);
+        // kolmiotk(4, 4);
+        // alas(8, 2);
+
         // Testaus kamaa
         // onebyone(1, 4);
         // kirkkaustesti();
-        // kaikki(15);
+        // kaikki(1);
 
         // Strobo alku
-        viivatk(3, 10);
-        viivatk(4, 6);
-        viivatk(7, 2);
-        viivatk(14, 0);
+        viivatk(2, 31);
+        viivatk(4, 15);
+        viivatk(8, 7);
+        viivatk(8, 5);
+        viivatk(18, 2);
+        viivatk(32, 0);
+
         strobe(24, 11);
         tyhjennys(1);
 
         // Looppaa muut efektit
-        for (loop = 0; loop < 7; loop++) {
-            taytto(3, 1);
-            himmennys(2, 7);
-            kaks(4, 1);
+        for (loop = 0; loop < 32; loop++) {
+            taytto(12, 1);
+            himmennys(12, 7);
+            kaks(24, 1);
             // vastakkain(4, 2);
-            ympari(4, 2);
-            kolmiotk(4, 4);
-            kolari(6, 1);
-            alas(12, 0);
+            ympari(24, 2);
+            kolmiotk(12, 4);
+            kolari(24, 1);
+            alas(24, 2);
         }
     }
 }

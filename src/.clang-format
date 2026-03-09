@@ -9,3 +9,10 @@ Cpp11BracedListStyle: false
 ReflowComments: false
 IndentWidth: 4
 TabWidth: 4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  # AfterControlStatement: Always
+  AfterCaseLabel: true
+  BeforeElse: true
+# AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: true

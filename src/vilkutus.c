@@ -60,115 +60,131 @@ void vilkutus(void) {
 
     while (led < 64) {
         switch (*kirkptr) {
-        case 0:
-            _delay_us(P0);
-            break;
-        case 1:
-            PORTA = *paptr;    // Ledin multiplex rivi high
-            PORTB = *pbptr;    // Ledin multiplex sarakke low
-            _delay_us(K1);     // Venäilua kun ledi on päällä
-            PORTB = alloff_pb; // Sammuta kakki ledit (kaikki PB high)
-            _delay_us(P1);     // Venailua kun kaikki ledit pois päältä
-            break;
-        case 2:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K2);
-            PORTB = alloff_pb;
-            _delay_us(P2);
-            break;
-        case 3:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K3);
-            PORTB = alloff_pb;
-            _delay_us(P3);
-            break;
-        case 4:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K4);
-            PORTB = alloff_pb;
-            _delay_us(P4);
-            break;
-        case 5:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K5);
-            PORTB = alloff_pb;
-            _delay_us(P5);
-            break;
-        case 6:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K6);
-            PORTB = alloff_pb;
-            _delay_us(P6);
-            break;
-        case 7:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K7);
-            PORTB = alloff_pb;
-            _delay_us(P7);
-            break;
-        case 8:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K8);
-            PORTB = alloff_pb;
-            _delay_us(P8);
-            break;
-        case 9:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K9);
-            PORTB = alloff_pb;
-            _delay_us(P9);
-            break;
-        case 10:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K10);
-            PORTB = alloff_pb;
-            _delay_us(P10);
-            break;
-        case 11:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K11);
-            PORTB = alloff_pb;
-            _delay_us(P11);
-            break;
-        case 12:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K12);
-            PORTB = alloff_pb;
-            _delay_us(P12);
-            break;
-        case 13:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K13);
-            PORTB = alloff_pb;
-            _delay_us(P13);
-            break;
-        case 14:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K14);
-            PORTB = alloff_pb;
-            _delay_us(P14);
-            break;
-        case 15:
-            PORTA = *paptr;
-            PORTB = *pbptr;
-            _delay_us(K15);
-            PORTB = alloff_pb;
-            break;
-        default: // negatiiviset ajatellaan nolliksi
-            break;
+            case 0:
+                _delay_us(P0);
+                break;
+
+            case 1:
+                PORTA = *paptr;    // Ledin multiplex rivi high
+                PORTB = *pbptr;    // Ledin multiplex sarakke low
+                _delay_us(K1);     // Venäilua kun ledi on päällä
+                PORTB = alloff_pb; // Sammuta kakki ledit (kaikki PB high)
+                _delay_us(P1);     // Venailua kun kaikki ledit pois päältä
+                break;
+
+            case 2:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K2);
+                PORTB = alloff_pb;
+                _delay_us(P2);
+                break;
+
+            case 3:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K3);
+                PORTB = alloff_pb;
+                _delay_us(P3);
+                break;
+
+            case 4:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K4);
+                PORTB = alloff_pb;
+                _delay_us(P4);
+                break;
+
+            case 5:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K5);
+                PORTB = alloff_pb;
+                _delay_us(P5);
+                break;
+
+            case 6:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K6);
+                PORTB = alloff_pb;
+                _delay_us(P6);
+                break;
+
+            case 7:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K7);
+                PORTB = alloff_pb;
+                _delay_us(P7);
+                break;
+
+            case 8:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K8);
+                PORTB = alloff_pb;
+                _delay_us(P8);
+                break;
+
+            case 9:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K9);
+                PORTB = alloff_pb;
+                _delay_us(P9);
+                break;
+
+            case 10:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K10);
+                PORTB = alloff_pb;
+                _delay_us(P10);
+                break;
+
+            case 11:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K11);
+                PORTB = alloff_pb;
+                _delay_us(P11);
+                break;
+
+            case 12:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K12);
+                PORTB = alloff_pb;
+                _delay_us(P12);
+                break;
+
+            case 13:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K13);
+                PORTB = alloff_pb;
+                _delay_us(P13);
+                break;
+
+            case 14:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K14);
+                PORTB = alloff_pb;
+                _delay_us(P14);
+                break;
+
+            case 15:
+                PORTA = *paptr;
+                PORTB = *pbptr;
+                _delay_us(K15);
+                PORTB = alloff_pb;
+                break;
+
+            default: // negatiiviset ajatellaan nolliksi
+                break;
         }
 
         kirkptr++;
