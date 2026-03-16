@@ -21,7 +21,7 @@ Koska levy on niin täynnä traceja, enkä jaksunut vaivata, varsinaista piikkir
 
 Skemassa on cyaanin värisiä viivoja, jotka tarkoittavan piirin olevan alemmassa piirilevyssä.
 
-<img src="media/selka.svg" alt="alt" width="100%">
+<img src="media/selka_skema.svg" alt="alt" width="100%">
 
 
 ## Osaluettelo
