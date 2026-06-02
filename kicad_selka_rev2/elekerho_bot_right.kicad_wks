@@ -13,7 +13,7 @@
 	)
 	(rect
 		(name "")
-		(start 110 43)
+		(start 104.681 40.114)
 		(end 2 2)
 		(comment "rect around the title block")
 	)
@@ -93,117 +93,117 @@
 	)
 	(tbtext "Date: ${ISSUE_DATE}"
 		(name "")
-		(pos 87 6.9)
+		(pos 81.92 6.9002)
 	)
 	(line
 		(name "")
-		(start 110 5.5)
+		(start 104.681 5.5)
 		(end 2 5.5)
 	)
 	(tbtext "${KICAD_VERSION}"
 		(name "")
-		(pos 109 4.1)
+		(pos 103.92 4.1002)
 		(comment "Kicad version")
 	)
 	(line
 		(name "")
-		(start 110 8.5)
+		(start 104.681 8.5)
 		(end 2 8.5)
 	)
 	(tbtext "Rev: ${REVISION}"
 		(name "")
-		(pos 24 6.9)
+		(pos 20.444 6.9002)
 		(font bold)
 	)
 	(tbtext "Size: ${PAPER}"
 		(name "")
-		(pos 109 6.9)
+		(pos 103.92 6.9002)
 		(comment "Paper format name")
 	)
 	(tbtext "Id: ${#}/${##}"
 		(name "")
-		(pos 24 4.1)
+		(pos 20.444 4.1002)
 		(comment "Sheet id")
 	)
 	(line
 		(name "")
-		(start 110 12.5)
+		(start 104.681 12.5)
 		(end 2 12.5)
 	)
 	(tbtext "Title: ${TITLE}"
 		(name "")
-		(pos 109 10.7)
+		(pos 103.92 10.7002)
 		(font
 			(size 2 2) bold italic)
 	)
 	(tbtext "File: ${FILENAME}"
 		(name "")
-		(pos 109 14.3)
+		(pos 103.92 14.3002)
 	)
 	(line
 		(name "")
-		(start 110 18.5)
+		(start 104.681 18.5)
 		(end 2 18.5)
 	)
 	(tbtext "Sheet: ${SHEETPATH}"
 		(name "")
-		(pos 109 17)
+		(pos 103.92 17.0002)
 	)
 	(tbtext "${COMPANY}"
 		(name "")
-		(pos 109 20)
+		(pos 103.92 20.0002)
 		(font bold)
 		(comment "Company name")
 	)
 	(tbtext "${COMMENT6}"
 		(name "")
-		(pos 109 23.0002)
+		(pos 103.92 23.0002)
 		(comment "Comment 0")
 	)
 	(tbtext "${COMMENT5}"
 		(name "")
-		(pos 109 28.5402)
+		(pos 103.92 26.0002)
 		(comment "Comment 1")
 	)
 	(tbtext "${COMMENT4}"
 		(name "")
-		(pos 109 31.5402)
+		(pos 103.92 29.0002)
 		(comment "Comment 2")
 	)
 	(line
 		(name "")
-		(start 90 8.5)
-		(end 90 5.5)
+		(start 84.92 8.5002)
+		(end 84.92 5.5002)
 	)
 	(line
 		(name "")
-		(start 26 8.5)
-		(end 26 2)
+		(start 21.428 8.5002)
+		(end 21.428 2.0002)
 	)
 	(tbtext "${COMMENT3}\n"
 		(name "")
-		(pos 109 34.5262)
+		(pos 103.92 31.9862)
 		(comment "Comment 2")
 	)
 	(tbtext "${COMMENT2}\n"
 		(name "")
-		(pos 109 37.5742)
+		(pos 103.92 35.0342)
 		(comment "Comment 2")
 	)
 	(tbtext "${COMMENT1}\n"
 		(name "")
-		(pos 109 40.6222)
+		(pos 103.92 38.0822)
 		(comment "Comment 2")
 	)
 	(line
 		(name "")
-		(start 26 43)
-		(end 26 18.5)
+		(start 21.428 40.0002)
+		(end 21.428 18.5002)
 	)
 	(bitmap
 		(name "")
-		(pos 13.749 30.4622)
-		(scale 0.2938461538)
+		(pos 11.717 28.9382)
+		(scale 0.2728571429)
 		(data "iVBORw0KGgoAAAANSUhEUgAAAO0AAAIdCAYAAADRQPq/AAAACXBIWXMAAB2HAAAdhwGP5fFlAAAA"
 			"GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAIABJREFUeJzt3Xt8XWWdLvDnt/ZO"
 			"2vTGXQqo40iVkdE2abicOepMUAaaNDLg2AxJi4p6RmcAaYFyhxJAQK7tAHNkPIoCTTqJMzqdJqGM"

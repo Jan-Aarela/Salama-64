@@ -33,8 +33,6 @@ Koska selkäsalama koostuu kahdesta eri piirilevystä, skemaan on lisätty hyppy
 |  1  | ATtiny 861A SOIC   |       **U/SU** malli ainakin toimii  |
 |  64 | 5mm DIP LED        | Tekijällä XL-502UBC ledit  |
 |  14  | 47 Ohm 1206 / 1210        |    < 30ma per IO pin    |
-|  14  | 470 Ohm 1206 / 1210        |    Transistorin ohjausta varten    |
-|  1  | NPN transostori SOT-23     |    *Smart* Kuormavastuksen avaaja |
 |  1  | 10uF tant. SMD     |    Virtalähteen virran tasoitusta varten |
 
 
@@ -66,7 +64,7 @@ Jos omasta mielestä sopivan kirkkaat ledit, ei muutakun kasamaan...
 ## Kasausohjeet
 Projekti aika pitkälti noudattaa possusalaman ohjeita.
 
- 1. Juota siis piiri, konkka ja 8 vastusta. Jätä konkan vierestä vastus juottamatta.  
+ 1. Juota siis piiri, konkka ja 14 vastusta. Jätä konkan vierestä vastus juottamatta.  
     Se on kuormavastukselle varattu paikka ja käytetään myös ohjelmoinnissa.
 
 2. Sitten voit juottaa hyppyjohdot levylle, jossa on piiri.  
@@ -109,10 +107,7 @@ Kannattaa laittaa kuoret kiinni siten, että laitat ensin terävän kulman ensin
 Juuh, eikait siinä. Nyt loistaa **MEGA**possu selässä  👌
 
 
-
-
 ## Koodi
-
 
 ```bash
 # Siirry koodi kansioon
@@ -127,23 +122,10 @@ avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:
 # Koodin siirto levylle
 avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U flash:w:a.out
 
-# kuviot.c tiedossa on hedari tiedostot vilkutus.c ja vilkutus_2x.c.
-# Voit kokeilla vaihtaa tiedostoa.
-# 2x tiedosto vilkuttaa kahta lediä samaan aikaan, eli se on kirkkaampi. 2x duty cycle.
-# Mutta atm buginen, joka kahdeksas ledi himmenee/kirkastuu riippiuen kuvioefektistä.
-# Voit myös muokata / tehdä omia kuvioefektejä muokkaamalla main.c ja kuviot.c
-
 # Testaukseen voit käyttää yhtä komento riviä yhdistämällä koodin käännös ja siirto komennot.
 # (bash shell)
 avr-gcc -mmcu=attiny861 main.c -I./ -Os -ffunction-sections -fdata-sections -Wl,--gc-sections -DF_CPU=8000000U && sudo avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U flash:w:a.out
-
-# Lopulliset fuse asetukset  (Reset pin --> IO pin) 
-# Kaikki ledit toimii, mutta tämän jälkeen et pysty puskea uutta koodia!!! 
-avrdude -c avrisp -p t861 -P /dev/ttyUSB0 -b 19200 -U lfuse:w:0xe2:m -U hfuse:w:0x5f:m
 ```
 
-
-## Fuse asetuksien nollaaminen
-Tyliin joku 12V high voltage fuse resetter setuppi tai laita vaan uusi pirii tilalle :D
 
 

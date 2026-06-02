@@ -1,4 +1,4 @@
 (fp_lib_table
-  (version 7)
-  (lib (name "footprinttejä")(type "KiCad")(uri "${KIPRJMOD}/footprinttejä.pretty")(options "")(descr ""))
+	(version 7)
+	(lib (name "footprintteja") (type "KiCad") (uri "${KIPRJMOD}/footprintteja.pretty") (options "") (descr ""))
 )
