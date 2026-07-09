@@ -1,8 +1,8 @@
 // vim: foldmethod=marker ft=c
 
-// Teinpäs possumerkistä xl-mallin (lisäefekteillä).
-// Toiminta periaate sama kuin possumerkissä.
-// Reset pinni ajettu IO pinniksi fuse asetuksella.
+// Teinpäs possu2 JÖÖTI version (lisäefekteillä).
+// Efektien toiminta periaate sama, paitsi bufferi on 2x isompi kun 2x enemmän ledjä.
+// Vaikka ISR olisi ollut ehkä parempi, tämä ei "riko" nykyistä yhteensopivuutta possu2 efektien kanssa.
 
 // Jan Äärelä ~ 2026
 // ELEKTRONIIKKAKERHO
@@ -16,22 +16,15 @@
 int main(void) {
 
     // 16MHz PLL asetukset
+    // Low fuse = E1
     // CLKPR = (1 << CLKPCE);
     // CLKPR = 0;
 
-    // Asetetaan kaikki PA ja PB portit outputiksi.
-    //       76543210
-    DDRA = 0b11111111;
-    DDRB = 0b11111111;
-
-    // Porttien initial state (=low).
-    PORTA = 0b00000000;
-    PORTB = 0b00000000;
-
-    uint8_t loop;
-
     // Tässäpä ne efektit looppaa.
     while (1) {
+
+        // NOTE: Eka parametri kerrrat,
+        // Toinen nopeus (montako kertaa vilkuttaa)
 
         // Testaus kamaa
         // onebyone(1, 20);
@@ -39,7 +32,7 @@ int main(void) {
         // kaikki(15);
 
         // Looppaa muut efektit
-        for (loop = 0; loop < 31; loop++) {
+        for (uint8_t loop = 0; loop < 31; loop++) {
             taytto(2, 1);
             himmennys(2, 7);
             kaks(2, 1);
