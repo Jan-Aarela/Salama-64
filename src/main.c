@@ -8,12 +8,16 @@
 // ELEKTRONIIKKAKERHO
 
 // Tuodaan muut tiedotot.
-#include "kuviot.c"
+#include "kuviot.h"
 #include <avr/io.h>
 #include <util/delay.h>
 
 // Main funktio
-void main(void) {
+int main(void) {
+
+    // 16MHz PLL asetukset
+    // CLKPR = (1 << CLKPCE);
+    // CLKPR = 0;
 
     // Asetetaan kaikki PA ja PB portit outputiksi.
     //       76543210
@@ -29,38 +33,21 @@ void main(void) {
     // Tässäpä ne efektit looppaa.
     while (1) {
 
-        // taytto(3, 1);
-        // kolari(6, 1);
-        // himmennys(2, 7);
-        // kolmiotk(4, 4);
-        // alas(8, 2);
-
         // Testaus kamaa
-        // onebyone(1, 4);
+        // onebyone(1, 20);
         // kirkkaustesti();
-        // kaikki(1);
-
-        // Strobo alku
-        viivatk(2, 31);
-        viivatk(4, 15);
-        viivatk(8, 7);
-        viivatk(8, 5);
-        viivatk(18, 2);
-        viivatk(32, 0);
-
-        strobe(24, 11);
-        tyhjennys(1);
+        // kaikki(15);
 
         // Looppaa muut efektit
-        for (loop = 0; loop < 32; loop++) {
-            taytto(12, 1);
-            himmennys(12, 7);
-            kaks(24, 1);
-            // vastakkain(4, 2);
-            ympari(24, 2);
-            kolmiotk(12, 4);
-            kolari(24, 1);
-            alas(24, 2);
+        for (loop = 0; loop < 31; loop++) {
+            taytto(2, 1);
+            himmennys(2, 7);
+            kaks(2, 1);
+            alas(2, 2);
+            ympari(2, 2);
+            kolmiotk(2, 4);
+            kolari(2, 1);
+            kukka2(2, 3);
         }
     }
 }

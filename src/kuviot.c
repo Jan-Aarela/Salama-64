@@ -1,9 +1,11 @@
 // vim: foldmethod=marker ft=c
 
 // Tuodaan muut tiedostot.
-#include "vilkutus_2x.c"
-#include <avr/io.h>
+#include "kuviot.h"
+#include "vilkutus_charlie.h"
 #include <stdint.h>
+
+int8_t kirkkaus[64] = { 0 };
 
 // Kaikki ledit {{{
 void kaikki(uint16_t tila) {
@@ -36,7 +38,7 @@ void himmennys(uint16_t kerrat,
     int8_t v;   // vrit
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
-        for (v = 1; v <= 15; v++) {
+        for (v = 0; v <= 15; v++) {
             for (i = 0; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
@@ -45,7 +47,7 @@ void himmennys(uint16_t kerrat,
             }
         }
 
-        for (v = 15; v >= 1; v--) {
+        for (v = 15; v >= 0; v--) {
             for (i = 0; i <= 63; i++) {
                 kirkkaus[i] = v;
             }
@@ -150,9 +152,10 @@ void taytto(uint16_t kerrat, uint8_t nopeus) {
 void tyhjennys(uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint16_t k; // kerrat
+
     for (i = 0; i <= 63; i++) {
         kirkkaus[i] = 0;
+
         for (j = 0; j <= nopeus; j++) {
             vilkutus();
         }
@@ -164,7 +167,6 @@ void tyhjennys(uint8_t nopeus) {
 void viivat(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
 
@@ -236,7 +238,6 @@ void viivat(uint16_t kerrat, uint8_t nopeus) {
 void viivatk(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
 
@@ -310,7 +311,6 @@ void viivatk(uint16_t kerrat, uint8_t nopeus) {
 void kolari(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
         for (i = 0; i <= 31; i++) {
@@ -337,7 +337,6 @@ void kolari(uint16_t kerrat, uint8_t nopeus) {
 void kaks(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
         for (i = 0; i <= 63; i++) {
@@ -373,7 +372,7 @@ void kolmiot(uint16_t kerrat, uint8_t nopeus) {
     uint16_t k; // kerrat
 
     for (k = 0; k < kerrat; k++) {
-        for (v = 0, w = 15; v <= 15, w >= 0; v++, w--) {
+        for (v = 0, w = 15; w >= 0; v++, w--) {
             for (i = 0; i <= 11; i++) {
                 kirkkaus[i] = v;
             }
@@ -388,7 +387,7 @@ void kolmiot(uint16_t kerrat, uint8_t nopeus) {
             }
         }
 
-        for (v = 15, w = 0; v >= 0, w <= 15; v--, w++) {
+        for (v = 15, w = 0; w <= 15; v--, w++) {
             for (i = 0; i <= 11; i++) {
                 kirkkaus[i] = v;
             }
@@ -419,7 +418,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
     uint16_t k; // kerrat
 
     for (k = 0; k < kerrat; k++) {
-        for (v = 1, w = 15; v <= 15, w >= 1; v++, w--) {
+        for (v = 0, w = 15; w >= 0; v++, w--) {
             for (i = 0; i <= 12; i++) {
                 kirkkaus[i] = v;
             }
@@ -435,7 +434,7 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
             }
         }
 
-        for (v = 15, w = 1; v >= 1, w <= 15; v--, w++) {
+        for (v = 15, w = 0; w <= 15; v--, w++) {
             for (i = 0; i <= 12; i++) {
                 kirkkaus[i] = v;
             }
@@ -462,7 +461,6 @@ void kolmiotk(uint16_t kerrat, uint8_t nopeus) {
 void alas(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
         for (i = 0; i <= 31; i++) {
@@ -502,7 +500,6 @@ void alas(uint16_t kerrat, uint8_t nopeus) {
 void vastakkain(uint16_t kerrat, uint8_t nopeus) {
     uint8_t i;
     uint8_t j;
-    uint8_t r;
     uint16_t k; // kerrat
     for (k = 0; k < kerrat; k++) {
         for (i = 0; i <= 31; i++) {
@@ -510,12 +507,12 @@ void vastakkain(uint16_t kerrat, uint8_t nopeus) {
                 kirkkaus[i] = 15;
                 kirkkaus[63 - i] = 15;
             }
-            for (r = 0; r <= nopeus; r++) {
+            for (j = 0; j <= nopeus; j++) {
                 vilkutus();
             }
-            for (int r = 0; r <= 63; r++) {
-                if (kirkkaus[r] > 0) {
-                    kirkkaus[r]--;
+            for (int j = 0; j <= 63; j++) {
+                if (kirkkaus[j] > 0) {
+                    kirkkaus[j]--;
                 }
             }
         }
@@ -539,7 +536,7 @@ void strobe(uint16_t kerrat, uint8_t nopeus) {
             vilkutus();
         }
         for (i = 0; i <= 63; i++) {
-            kirkkaus[i] = 13;
+            kirkkaus[i] = 12;
         }
         for (i = 0; i <= nopeus; i++) {
             vilkutus();
@@ -547,3 +544,106 @@ void strobe(uint16_t kerrat, uint8_t nopeus) {
     }
 }
 // }}}
+
+// Kukka {{{
+void kukka(uint16_t kerrat, uint8_t nopeus) {
+    int8_t v;
+    int8_t w;
+    int8_t i;
+
+    uint16_t k; // kerrat
+    for (k = 0; k < kerrat; k++) {
+
+        w = 13;
+        for (v = 12; v >= 0; v--) {
+            // Pysty
+            kirkkaus[v] = 15;
+            // Sivu
+            kirkkaus[v + 32] = 15;
+
+            // Pysty
+            kirkkaus[w] = 15;
+            // Sivu
+            kirkkaus[w + 32] = 15;
+
+            for (i = 0; i <= nopeus; i++) {
+                vilkutus();
+            }
+
+            w++;
+
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
+                }
+            }
+        }
+        for (v = 0; v <= 6; v++) {
+
+            // Ala
+            kirkkaus[31 - v] = 15;
+            // Ylä
+            if (v == 6) {
+                kirkkaus[0] = 15;
+            }
+            else {
+                kirkkaus[58 + v] = 15;
+            }
+
+            for (i = 0; i <= nopeus; i++) {
+                vilkutus();
+            }
+
+            w++;
+
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
+                }
+            }
+        }
+        w = 0;
+    }
+    for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = 0;
+    }
+    vilkutus();
+
+} // }
+
+// Kukka {{{
+void kukka2(uint16_t kerrat, uint8_t nopeus) {
+    int8_t i;
+    int8_t v;
+    uint16_t k; // kerrat
+
+    for (k = 0; k < kerrat; k++) {
+
+        for (v = 0; v <= 19; v++) {
+            if (v <= 18) {
+                kirkkaus[45 + v] = 15;
+                kirkkaus[44 - v] = 15;
+            }
+
+            if (v >= 7) {
+                kirkkaus[6 + v] = 15;
+                kirkkaus[19 - v] = 15;
+            }
+
+            for (i = 0; i <= nopeus; i++) {
+                vilkutus();
+            }
+
+            for (int r = 0; r <= 63; r++) {
+                if (kirkkaus[r] > 0) {
+                    kirkkaus[r]--;
+                }
+            }
+        }
+    }
+    for (i = 0; i <= 63; i++) {
+        kirkkaus[i] = 0;
+    }
+    vilkutus();
+
+} // }

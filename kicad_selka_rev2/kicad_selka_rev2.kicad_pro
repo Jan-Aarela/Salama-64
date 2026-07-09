@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 2.65,
-          "width": 1.3
+          "drill": 1.125,
+          "height": 1.5,
+          "width": 2.0
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.0,
+          "min_clearance": 0.65,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -94,10 +94,10 @@
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
         "footprint": "error",
-        "footprint_filters_mismatch": "ignore",
+        "footprint_filters_mismatch": "error",
         "footprint_symbol_field_mismatch": "warning",
         "footprint_symbol_mismatch": "warning",
-        "footprint_type_mismatch": "ignore",
+        "footprint_type_mismatch": "error",
         "hole_clearance": "error",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
@@ -116,7 +116,7 @@
         "missing_tuning_profile": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "npth_inside_courtyard": "error",
         "padstack": "warning",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
@@ -133,12 +133,12 @@
         "too_many_vias": "error",
         "track_angle": "error",
         "track_dangling": "warning",
-        "track_not_centered_on_via": "ignore",
+        "track_not_centered_on_via": "warning",
         "track_on_post_machined_layer": "error",
         "track_segment_length": "error",
         "track_width": "error",
         "tracks_crossing": "error",
-        "tuning_profile_track_geometries": "ignore",
+        "tuning_profile_track_geometries": "error",
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
@@ -170,7 +170,7 @@
           "td_onpthpad": true,
           "td_onroundshapesonly": false,
           "td_onsmdpad": true,
-          "td_ontrackend": false,
+          "td_ontrackend": true,
           "td_onvia": true
         }
       ],
@@ -181,7 +181,7 @@
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
-          "td_maxlen": 1.0,
+          "td_maxlen": 0.5,
           "td_on_pad_in_zone": false,
           "td_target_name": "td_round_shape",
           "td_width_to_size_filter_ratio": 0.9
@@ -192,7 +192,7 @@
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
-          "td_maxlen": 1.0,
+          "td_maxlen": 0.5,
           "td_on_pad_in_zone": false,
           "td_target_name": "td_rect_shape",
           "td_width_to_size_filter_ratio": 0.9
@@ -203,7 +203,7 @@
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
-          "td_maxlen": 1.0,
+          "td_maxlen": 0.5,
           "td_on_pad_in_zone": false,
           "td_target_name": "td_track_end",
           "td_width_to_size_filter_ratio": 0.9
@@ -250,8 +250,16 @@
           "drill": 0.3
         },
         {
+          "diameter": 0.8,
+          "drill": 0.4
+        },
+        {
+          "diameter": 0.9,
+          "drill": 0.3
+        },
+        {
           "diameter": 1.2,
-          "drill": 0.8
+          "drill": 0.6
         }
       ],
       "zones_allow_external_fillets": false
@@ -542,14 +550,19 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Default",
+        "pattern": "GND1"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "gerberit_ala/",
+      "plot": "gerberit_${SKEMA_REV}-${BOARD_DATE}_ala/",
       "pos_files": "/home/jan-aarela/salamaasd/",
       "specctra_dsn": "",
       "step": "kicad_selka_rev2.stl",
@@ -626,12 +639,36 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Field5",
+          "name": "Field5",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -665,7 +702,7 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "kicad-embed://elekerho_bot_right.kicad_wks",
+    "page_layout_descr_file": "kicad-embed://elekerho_bot_right_f.kicad_wks",
     "plot_directory": "",
     "reuse_designators": true,
     "space_save_all_events": true,
@@ -684,7 +721,7 @@
         "uuid": "19c3cedf-93d3-4c6c-b33c-34cff50e8bf3"
       }
     ],
-    "used_designators": "#PWR2,#PWR6-7,SW1,U2,C2-3,D65-106,R15,R17-22",
+    "used_designators": "SW1,JP1,R16-22,D65-98",
     "variants": []
   },
   "sheets": [
@@ -693,7 +730,10 @@
       "kicad_selka_rev2"
     ]
   ],
-  "text_variables": {},
+  "text_variables": {
+    "BOARD_DATE": "260625",
+    "SKEMA_REV": "R2"
+  },
   "tuning_profiles": {
     "meta": {
       "version": 0
